@@ -4,15 +4,15 @@
 
 	<insert id="AddPet" parameterType="com.sopoong.camp.vo.Pet" >
 		INSERT INTO pet
-		(`UserId`,`PetId`,`Name`,`Age`,`Weight`,`Birth`,`Inform`,`KIND`,`FLAG`)
+		(`userid`,`petid`,`name`,`age`,`weight`,`birth`,`inform`,`kind`,`flag`)
 		VALUES
-		(#{UserId},#{PetId},#{Name},#{Age},#{Weight},#{Birth},#{Inform},#{KIND},#{KIND})
+		(#{userid},#{petid},#{name},#{age},#{weight},#{birth},#{inform},#{kind},#{flag})
 	</insert>
 	
 	<select	id="GetPetList"	parameterType="com.sopoong.camp.vo.pet" resultType="com.sopoong.camp.vo.pet" >
 		select * from pet
 		<where>
-			UserId = #{UserId}
+			userid = #{userid}
 		</where>
 		</select>
 	
@@ -27,9 +27,9 @@
 	<update id="UpdatePet" parameterType="com.sopoong.camp.vo.Pet" >
 	
 		update pet
-		Inform = #{Inform}
+		inform = #{inform}
 		<where>
-		UserId=#{UserId}
+		userid=#{userid}
 		</where>
 	
 	</update>
