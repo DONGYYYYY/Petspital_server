@@ -10,6 +10,8 @@ public interface PetMapper {
 	
 	List<Pet> GetPetList(String UserId);
 	
+	int DeletePet(Pet pet);
+	
 	int UpdatePet(Pet pet);
 
 }

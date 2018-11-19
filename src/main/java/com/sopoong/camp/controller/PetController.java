@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sopoong.camp.dao.PetDao;
-import com.sopoong.camp.vo.Member;
 import com.sopoong.camp.vo.Pet;
 
 
@@ -28,14 +27,19 @@ public class PetController {
    }
 
    
-   @RequestMapping(value = "/GetPetList",method=RequestMethod.POST, produces="application/json;charset=UTF-8")
-   public List<Pet> signInMember(@RequestParam String userid){
+   @RequestMapping(value = "/GetPetList",method=RequestMethod.GET, produces="application/json;charset=UTF-8")
+   public List<Pet> GetPetList(@RequestParam String userid){
       return petDao.GetPetList(userid);
    }
 
    
    @RequestMapping(value = "/UpdatePet",method = RequestMethod.POST,produces="application/json;charset=UTF-8")
-   public int deleteMember(@RequestBody Pet pet) {
+   public int UpdatePet(@RequestBody Pet pet) {
       return petDao.UpdatePet(pet);
+   }
+   
+   @RequestMapping(value = "/DeletePet",method = RequestMethod.POST,produces="application/json;charset=UTF-8")
+   public int DeletePet(@RequestBody Pet pet) {
+	   return petDao.DeletePet(pet);
    }
 }

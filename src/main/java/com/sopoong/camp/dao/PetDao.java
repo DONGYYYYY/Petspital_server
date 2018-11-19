@@ -25,6 +25,10 @@ public class PetDao {
 		return sqlSession.getMapper(PetMapper.class).GetPetList(UserId);
 	}
 	
+	public int DeletePet(Pet pet) {
+		return sqlSession.getMapper(PetMapper.class).DeletePet(pet);
+	}
+	
 	public int UpdatePet(Pet pet)
 	{
 		return sqlSession.getMapper(PetMapper.class).UpdatePet(pet);

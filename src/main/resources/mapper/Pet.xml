@@ -4,32 +4,42 @@
 
 	<insert id="AddPet" parameterType="com.sopoong.camp.vo.Pet" >
 		INSERT INTO pet
-		(`userid`,`petid`,`name`,`age`,`weight`,`birth`,`inform`,`kind`,`flag`)
+		(`userid`,`name`,`age`,`weight`,`birth`,`inform`,`kind`,`flag`,`sex`)
 		VALUES
-		(#{userid},#{petid},#{name},#{age},#{weight},#{birth},#{inform},#{kind},#{flag})
+		(#{userid},#{name},#{age},#{weight},#{birth},#{inform},#{kind},#{flag},#{sex})
 	</insert>
 	
-	<select	id="GetPetList"	parameterType="com.sopoong.camp.vo.pet" resultType="com.sopoong.camp.vo.pet" >
+	<select	id="GetPetList"	parameterType="com.sopoong.camp.vo.Pet" resultType="com.sopoong.camp.vo.Pet" >
 		select * from pet
 		<where>
 			userid = #{userid}
 		</where>
 		</select>
 	
-<!-- 	<delete id="deleteMember" parameterType="com.sopoong.camp.vo.Member">
-		delete from member
+	<delete id="DeletePet" parameterType="com.sopoong.camp.vo.Pet">
+		delete from pet
 		<where>
-		id = #{id} and
-		password = #{password}
+		userid = #{userid} and
+		name = #{name} and
+		age = #{age} and
+		weight = #{weight} and
+		birth = #{birth} and
+		inform = #{inform} and
+		kind = #{kind} and
+		flag = #{flag} and
+		sex = #{sex}
 		</where>
-	</delete> -->
+	</delete> 
 	
 	<update id="UpdatePet" parameterType="com.sopoong.camp.vo.Pet" >
 	
 		update pet
-		inform = #{inform}
+		set inform = #{inform},
+			age = #{age},
+			weight = #{weight}
 		<where>
-		userid=#{userid}
+		userid = #{userid} and
+		name = #{name}
 		</where>
 	
 	</update>
