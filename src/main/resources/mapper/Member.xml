@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sopoong.camp.mapper.MemberMapper"><!-- package랑 mapper class명과 일치 -->
+
+	<select id="signInMember" parameterType="com.sopoong.camp.vo.Member" resultType="com.sopoong.camp.vo.Member" >
+		select * from member
+		<where>
+			id = #{id} and password = #{password}
+		</where>
+	</select>
+	
+	<insert id="signUpMember" parameterType="com.sopoong.camp.vo.Member">	
+		INSERT INTO member
+		(`name`,`id`,`password`,`nickname`,`tel`)
+		VALUES
+		(#{name},#{id},#{password},#{nickname},#{tel})
+		
+	</insert>
+	
+	<delete id="deleteMember" parameterType="com.sopoong.camp.vo.Member">
+		delete from member
+		<where>
+		id = #{id} and
+		password = #{password}
+		</where>
+	</delete>
+</mapper>

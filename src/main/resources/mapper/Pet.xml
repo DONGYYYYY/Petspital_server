@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sopoong.camp.mapper.PetMapper"><!-- package랑 mapper class명과 일치 -->
+
+	<insert id="AddPet" parameterType="com.sopoong.camp.vo.Pet" >
+		INSERT INTO pet
+		(`UserId`,`PetId`,`Name`,`Age`,`Weight`,`Birth`,`Inform`,`KIND`,`FLAG`)
+		VALUES
+		(#{UserId},#{PetId},#{Name},#{Age},#{Weight},#{Birth},#{Inform},#{KIND},#{KIND})
+	</insert>
+	
+	<select	id="GetPetList"	parameterType="com.sopoong.camp.vo.pet" resultType="com.sopoong.camp.vo.pet" >
+		select * from pet
+		<where>
+			UserId = #{UserId}
+		</where>
+		</select>
+	
+<!-- 	<delete id="deleteMember" parameterType="com.sopoong.camp.vo.Member">
+		delete from member
+		<where>
+		id = #{id} and
+		password = #{password}
+		</where>
+	</delete> -->
+	
+	<update id="UpdatePet" parameterType="com.sopoong.camp.vo.Pet" >
+	
+		update pet
+		Inform = #{Inform}
+		<where>
+		UserId=#{UserId}
+		</where>
+	
+	</update>
+	
+</mapper>
