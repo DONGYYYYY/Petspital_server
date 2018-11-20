@@ -5,23 +5,23 @@
 	<select id="listComment" parameterType="com.sopoong.camp.vo.Comment" resultType="com.sopoong.camp.vo.Comment">
 		select * from comment
 		<where>
-			camp = #{camp}
+			petspital = #{petspital}
 		</where>
 		order by regdate desc
 	</select>
 	
 	<insert id="addComment" parameterType="com.sopoong.camp.vo.Comment">		
 		INSERT INTO comment
-		(`camp`,`id`,`name`,`text`,`star`,`password`)
+		(`petspital`,`id`,`name`,`text`,`star`)
 		VALUES
-		(#{camp},#{id},#{name},#{text},#{star},#{password})
+		(#{petspital},#{id},#{name},#{text},#{star})
 	</insert>
 	
 	<delete id="delComment" parameterType="com.sopoong.camp.vo.Comment">
 		delete from comment
 		<where>
 		num = #{num} and
-		password = #{password}
+		id = #{id}
 		</where>
 	</delete>
 </mapper>

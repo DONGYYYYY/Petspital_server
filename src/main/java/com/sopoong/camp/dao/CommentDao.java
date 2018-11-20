@@ -16,8 +16,8 @@ public class CommentDao {
 	private SqlSession sqlSession;
 	
 	
-	public List<Comment> listComment(String camp) {
-		List<Comment> result = sqlSession.getMapper(CampMapper.class).listComment(camp);
+	public List<Comment> listComment(String petspital) {
+		List<Comment> result = sqlSession.getMapper(CampMapper.class).listComment(petspital);
 		return result;
 	}
 

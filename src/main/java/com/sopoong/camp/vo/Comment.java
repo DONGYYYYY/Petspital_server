@@ -8,11 +8,10 @@ import lombok.Data;
 public class Comment {
 
 	private int num;
-	private String camp;
+	private String petspital;
 	private String id;
 	private String name;
 	private String text;
 	private double star;
 	private Date regdate;
-	private String password;
 }

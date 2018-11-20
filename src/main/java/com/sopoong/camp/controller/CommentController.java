@@ -21,9 +21,9 @@ public class CommentController {
 	CommentDao commentDao;//
 	
 	@RequestMapping(value = "/listAll",method=RequestMethod.GET, produces="application/json;charset=UTF-8")
-	public List<Comment> listComment(@RequestParam String camp){
+	public List<Comment> listComment(@RequestParam String petspital){
 		
-		return commentDao.listComment(camp);
+		return commentDao.listComment(petspital);
 	}
 
 	
