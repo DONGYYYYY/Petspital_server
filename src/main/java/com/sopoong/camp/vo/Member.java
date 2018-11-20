@@ -9,4 +9,5 @@ public class Member {
 	private String password;
 	private String nickname;
 	private String tel;
+	private int flag;
 }
