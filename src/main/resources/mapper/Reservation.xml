@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sopoong.camp.mapper.ReservationMapper"><!-- package랑 mapper class명과 일치 -->
+
+	<insert id="InsertReservation" parameterType="com.sopoong.camp.vo.Reservation" >
+		INSERT INTO reservation
+		(`petspital`,`regdate`,`userid`,`name`,`age`,`weight`,`birth`,`inform`,`kind`,`flag`,`sex`)
+		VALUES
+		(#{petspital},#{regdate},#{userid},#{name},#{age},#{weight},#{birth},#{inform},#{kind},#{flag},#{sex})
+	</insert>
+	
+	<select	id="CheckReservationAble"	parameterType="com.sopoong.camp.vo.Reservation" resultType="int" >
+		select count(*) from reservation
+		<where>
+			petspital = #{petspital} and
+			regdate = #{regdate}
+		</where>
+		</select>
+		
+	<!--<delete id="DeletePet" parameterType="com.sopoong.camp.vo.Reservation">
+		delete from pet
+		<where>
+		userid = #{userid} and
+		name = #{name} and
+		age = #{age} and
+		weight = #{weight} and
+		birth = #{birth} and
+		inform = #{inform} and
+		kind = #{kind} and
+		flag = #{flag} and
+		sex = #{sex}
+		</where>
+	</delete> 
+	
+	<update id="UpdatePet" parameterType="com.sopoong.camp.vo.Pet" >
+	
+		update pet
+		set inform = #{inform},
+			age = #{age},
+			weight = #{weight}
+		<where>
+		userid = #{userid} and
+		name = #{name}
+		</where>
+	
+	</update>-->
+	
+</mapper>
