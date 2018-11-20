@@ -17,32 +17,47 @@
 		</where>
 		</select>
 		
-	<!--<delete id="DeletePet" parameterType="com.sopoong.camp.vo.Reservation">
-		delete from pet
+	<select	id="CheckAlreadyReservation"	parameterType="com.sopoong.camp.vo.Reservation" resultType="int" >
+		select count(*) from reservation
 		<where>
-		userid = #{userid} and
-		name = #{name} and
-		age = #{age} and
-		weight = #{weight} and
-		birth = #{birth} and
-		inform = #{inform} and
-		kind = #{kind} and
-		flag = #{flag} and
-		sex = #{sex}
+			petspital = #{petspital} and
+			regdate = #{regdate} and
+			userid = #{userid} and
+			name = #{name} and
+			age = #{age} and
+			weight = #{weight} and
+			birth = #{birth} and
+			inform = #{inform} and
+			kind = #{kind} and
+			flag = #{flag} and
+			sex = #{sex}
+		</where>
+	</select>
+		
+	<delete id="DeleteReservation" parameterType="com.sopoong.camp.vo.Reservation">
+		delete from reservation
+		<where>
+			petspital = #{petspital} and
+			regdate = #{regdate} and
+			userid = #{userid} and
+			name = #{name} and
+			age = #{age} and
+			weight = #{weight} and
+			birth = #{birth} and
+			inform = #{inform} and
+			kind = #{kind} and
+			flag = #{flag} and
+			sex = #{sex}
 		</where>
 	</delete> 
 	
-	<update id="UpdatePet" parameterType="com.sopoong.camp.vo.Pet" >
 	
-		update pet
-		set inform = #{inform},
-			age = #{age},
-			weight = #{weight}
+	<select	id="GetReservationList"	parameterType="com.sopoong.camp.vo.Reservation" resultType="com.sopoong.camp.vo.Reservation" >
+		select * from reservation
 		<where>
-		userid = #{userid} and
-		name = #{name}
+			userid = #{userid}
+			order by regdate asc
 		</where>
-	
-	</update>-->
+	</select>
 	
 </mapper>
