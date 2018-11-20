@@ -15,7 +15,19 @@
 			userid = #{userid}
 		</where>
 		</select>
-	
+		
+	<select	id="GetPet"	parameterType="com.sopoong.camp.vo.Pet" resultType="com.sopoong.camp.vo.Pet" >
+		select * from pet
+		<where>
+			userid = #{userid} and
+			name = #{name} and
+			birth = #{birth} and
+			kind = #{kind} and
+			flag = #{flag} and
+			sex = #{sex}
+		</where>
+		</select>
+		
 	<delete id="DeletePet" parameterType="com.sopoong.camp.vo.Pet">
 		delete from pet
 		<where>

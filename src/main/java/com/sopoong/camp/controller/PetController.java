@@ -42,4 +42,9 @@ public class PetController {
    public int DeletePet(@RequestBody Pet pet) {
 	   return petDao.DeletePet(pet);
    }
+   
+   @RequestMapping(value = "/GetPet",method=RequestMethod.GET, produces="application/json;charset=UTF-8")
+   public Pet GetPet(@RequestParam String userid,String name, String birth, String kind , int flag , int sex){
+      return petDao.GetPet(userid,name,birth,kind,flag,sex);
+   }
 }

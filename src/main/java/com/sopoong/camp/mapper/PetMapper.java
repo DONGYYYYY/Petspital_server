@@ -14,4 +14,6 @@ public interface PetMapper {
 	
 	int UpdatePet(Pet pet);
 
+	Pet GetPet(String userid,String name, String birth, String kind , int flag , int sex);
+
 }

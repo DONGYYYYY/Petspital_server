@@ -34,4 +34,8 @@ public class PetDao {
 		return sqlSession.getMapper(PetMapper.class).UpdatePet(pet);
 	}
 	
+	public Pet GetPet(String userid,String name, String birth, String kind , int flag , int sex)
+	{
+		return sqlSession.getMapper(PetMapper.class).GetPet(userid,name,birth,kind,flag,sex);
+	}
 }
