@@ -12,9 +12,9 @@
 	
 	<insert id="addComment" parameterType="com.sopoong.camp.vo.Comment">		
 		INSERT INTO comment
-		(`petspital`,`id`,`name`,`text`,`star`)
+		(`petspital`,`id`,`text`,`star`)
 		VALUES
-		(#{petspital},#{id},#{name},#{text},#{star})
+		(#{petspital},#{id},#{text},#{star})
 	</insert>
 	
 	<delete id="delComment" parameterType="com.sopoong.camp.vo.Comment">
