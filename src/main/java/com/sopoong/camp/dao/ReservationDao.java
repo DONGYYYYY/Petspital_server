@@ -39,5 +39,9 @@ public class ReservationDao {
 	{
 		return sqlSession.getMapper(ReservationMapper.class).GetReservationList(userid);
 	}
+	public List<Reservation> GetPetspitalReservationList(String petspital)
+	{
+		return sqlSession.getMapper(ReservationMapper.class).GetPetspitalReservationList(petspital);
+	}
 }
 

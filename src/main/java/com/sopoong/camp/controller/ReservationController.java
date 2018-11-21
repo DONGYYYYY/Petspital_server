@@ -38,14 +38,20 @@ public class ReservationController {
 	 }
 	 
 	 @RequestMapping(value = "/deleteReservation" ,method=RequestMethod.POST, produces="application/json;charset=UTF-8")
-	 public int DeleteReservation(Reservation reservation)
+	 public int DeleteReservation(@RequestBody Reservation reservation)
 	 {
 		 return reservationDao.DeleteReservation(reservation);
 	 }
 	 
 	 @RequestMapping(value = "/getReservationList",method=RequestMethod.GET, produces="application/json;charset=UTF-8")
-	 public List<Reservation> GetReservationList(String userid)
+	 public List<Reservation> GetReservationList(@RequestParam String userid)
 	 {
 		 return reservationDao.GetReservationList(userid);
+	 }
+	 
+	 @RequestMapping(value = "/getPetspitalReservationList",method=RequestMethod.GET, produces="application/json;charset=UTF-8")
+	 List<Reservation> GetPetspitalReservationList(@RequestParam String petspital)
+	 {
+		return reservationDao.GetPetspitalReservationList(petspital);
 	 }
 }

@@ -15,4 +15,6 @@ public interface ReservationMapper {
 	int DeleteReservation(Reservation reservation);
 	
 	List<Reservation> GetReservationList(String userid);
+	
+	List<Reservation> GetPetspitalReservationList(String petspital);
 }
