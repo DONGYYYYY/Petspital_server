@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sopoong.camp.mapper.ReservationMapper"><!-- package랑 mapper class명과 일치 -->
+
+	<insert id="InsertReservation" parameterType="com.sopoong.camp.vo.Reservation" >
+		INSERT INTO reservation
+		(`petspital`,`regdate`,`userid`,`name`,`age`,`weight`,`birth`,`inform`,`kind`,`flag`,`sex`)
+		VALUES
+		(#{petspital},#{regdate},#{userid},#{name},#{age},#{weight},#{birth},#{inform},#{kind},#{flag},#{sex})
+	</insert>
+	
+	<select	id="CheckReservationAble"	parameterType="com.sopoong.camp.vo.Reservation" resultType="int" >
+		select count(*) from reservation
+		<where>
+			petspital = #{petspital} and
+			regdate = #{regdate}
+		</where>
+		</select>
+		
+	<select	id="CheckAlreadyReservation"	parameterType="com.sopoong.camp.vo.Reservation" resultType="int" >
+		select count(*) from reservation
+		<where>
+			petspital = #{petspital} and
+			regdate = #{regdate} and
+			userid = #{userid} and
+			name = #{name} and
+			age = #{age} and
+			weight = #{weight} and
+			birth = #{birth} and
+			inform = #{inform} and
+			kind = #{kind} and
+			flag = #{flag} and
+			sex = #{sex}
+		</where>
+	</select>
+		
+	<delete id="DeleteReservation" parameterType="com.sopoong.camp.vo.Reservation">
+		delete from reservation
+		<where>
+			petspital = #{petspital} and
+			regdate = #{regdate} and
+			userid = #{userid} and
+			name = #{name}
+		</where>
+	</delete> 
+	
+	
+	<select	id="GetReservationList"	parameterType="com.sopoong.camp.vo.Reservation" resultType="com.sopoong.camp.vo.Reservation" >
+		select * from reservation
+		<where>
+			userid = #{userid}
+			order by regdate asc
+		</where>
+	</select>
+	
+	<select	id="GetPetspitalReservationList"	parameterType="com.sopoong.camp.vo.Reservation" resultType="com.sopoong.camp.vo.Reservation" >
+		select * from reservation
+		<where>
+			petspital = #{petspital}
+			order by regdate asc
+		</where>
+	</select>
+	
+</mapper>

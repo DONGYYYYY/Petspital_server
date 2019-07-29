@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sopoong.camp.mapper.PeopleMapper"><!-- package랑 mapper class명과 일치 -->
+
+	<select id="ShowPeople" parameterType="com.sopoong.camp.vo.People" resultType="com.sopoong.camp.vo.People" >
+		select * from people
+	</select>
+
+	<update id="UpdatePeople" parameterType="com.sopoong.camp.vo.People" >
+	
+		update people
+		set count = #{count}
+		<where>
+		camera = #{camera}
+		</where>
+	</update>
+	
+	<select id="ShowCount" parameterType="com.sopoong.camp.vo.People" resultType="com.sopoong.camp.vo.People" >
+		select * from people
+		<where>
+			camera = #{camera}
+		</where>
+	</select>
+	
+</mapper> 

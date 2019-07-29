@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sopoong.camp.mapper.PetMapper"><!-- package랑 mapper class명과 일치 -->
+
+	<insert id="AddPet" parameterType="com.sopoong.camp.vo.Pet" >
+		INSERT INTO pet
+		(`userid`,`name`,`age`,`weight`,`birth`,`inform`,`kind`,`flag`,`sex`)
+		VALUES
+		(#{userid},#{name},#{age},#{weight},#{birth},#{inform},#{kind},#{flag},#{sex})
+	</insert>
+	
+	<select	id="GetPetList"	parameterType="com.sopoong.camp.vo.Pet" resultType="com.sopoong.camp.vo.Pet" >
+		select * from pet
+		<where>
+			userid = #{userid}
+		</where>
+		</select>
+		
+	<select	id="GetPet"	parameterType="com.sopoong.camp.vo.Pet" resultType="com.sopoong.camp.vo.Pet" >
+		select * from pet
+		<where>
+			userid = #{userid} and
+			name = #{name} and
+			birth = #{birth} and
+			kind = #{kind} and
+			flag = #{flag} and
+			sex = #{sex}
+		</where>
+		</select>
+		
+	<delete id="DeletePet" parameterType="com.sopoong.camp.vo.Pet">
+		delete from pet
+		<where>
+		userid = #{userid} and
+		name = #{name} and
+		age = #{age} and
+		weight = #{weight} and
+		birth = #{birth} and
+		inform = #{inform} and
+		kind = #{kind} and
+		flag = #{flag} and
+		sex = #{sex}
+		</where>
+	</delete> 
+	
+	<update id="UpdatePet" parameterType="com.sopoong.camp.vo.Pet" >
+	
+		update pet
+		set inform = #{inform},
+			age = #{age},
+			weight = #{weight}
+		<where>
+		userid = #{userid} and
+		name = #{name}
+		</where>
+	
+	</update>
+	
+</mapper>
